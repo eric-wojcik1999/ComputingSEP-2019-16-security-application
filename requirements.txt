@@ -1,0 +1,17 @@
+Django==2.2.4
+djangorestframework
+djangorestframework-jwt
+drf-jwt-2fa
+psycopg2
+PyJWT
+pytz
+sqlparse
+virtualenv
+virtualenvwrapper-win
+factory_boy
+Faker
+django-rest-assured
+django-cors-headers
+simplejson
+django-sslserver
+django-mailjet

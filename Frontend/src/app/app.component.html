@@ -1,0 +1,27 @@
+<!-- *ngIf="showComponent" is used to disable the top and side bar when on the login page --
+<div *ngIf="showComponent"><app-topbar></app-topbar>
+<app-sidebar></app-sidebar></div>
+->
+<mat-drawer-container class="example-container">
+ 	<mat-drawer mode="side" opened>Drawer content</mat-drawer>
+ 	<mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>-->
+<!--
+<ng-container *ngIf="showComponent" class="bigContain">
+	<ng-container class="top-container">
+	  <mat-toolbar class="topbar">
+		Header
+	  </mat-toolbar>
+	</ng-container>
+	<ng-container class="sidebar-container">
+	  <mat-sidenav-container class="example-container">
+	    <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+	    	<ul>
+	    		<li> Test Case </li>
+	    		<li> Test 2 </li>
+	    		<li> longer test case </li>
+	    	</ul>
+	    </mat-sidenav>
+	  </mat-sidenav-container>
+</ng-container>-->
+<router-outlet></router-outlet>

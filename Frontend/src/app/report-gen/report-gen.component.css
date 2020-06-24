@@ -1,0 +1,80 @@
+h1 {
+  color: darkblue;
+}
+
+#gen {
+    margin-top: 1%;
+    width: 95%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+}
+
+#gen-button, #clear-button{
+    background-color: rgb(2, 2, 206);
+    margin-right:3%;
+    color: #FFF;
+}
+#edge {
+    width: 95%;
+    margin-left: 1%;
+}
+
+#clear-button{
+  background-color: rgb(221, 0, 0);
+}
+
+#edgeBelow {
+  width: 95%;
+  margin-left: 1%;
+  margin-top:2%;
+}
+
+table {
+    width: 95%;
+    margin-left: 1%;
+  }
+  
+  tr.asset-detail-row {
+    height: 0;
+  }
+  
+  tr.asset-row:not(.asset-expanded-row):hover {
+    background: #CCC;
+  }
+  
+  tr.asset-row:not(.asset-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .asset-row td {
+    border-bottom-width: 0;
+  }
+  
+  .asset-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .criticality {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 96px;
+  }
+  
+  .critical-level {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .asset-expanded-info {
+    padding: 16px;
+  }
+  
+  .asset-expanded-info-attribution {
+    opacity: 0.5;
+  }
+  

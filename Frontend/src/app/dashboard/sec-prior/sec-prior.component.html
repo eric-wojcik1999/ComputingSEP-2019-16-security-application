@@ -1,0 +1,44 @@
+<mat-paginator class="page" [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+<mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="dataSource">
+    <!--Name of Asset-->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <!--Description-->
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.desc}}</td>
+    </ng-container>
+    
+
+    <!--Owner of Asset-->
+    <ng-container matColumnDef="owner">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner</th>
+            <td mat-cell *matCellDef="let element">{{element.owner}}</td>
+    </ng-container>
+
+    <!--Company that this asset belongs to-->
+    <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+        <td mat-cell *matCellDef="let element">{{element.company}}</td>
+    </ng-container>
+
+    <!--Critical to Business-->
+    <ng-container matColumnDef="busCrit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Business Critical</th>
+            <td mat-cell *matCellDef="let element">{{element.busCrit}}</td>
+    </ng-container>
+
+    <!--Estimated Worth-->
+    <ng-container matColumnDef="estWorth">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Estimated Worth</th>
+            <td mat-cell *matCellDef="let element">{{element.estWorth}}</td>
+    </ng-container>
+
+    <!--Displayed Rows-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

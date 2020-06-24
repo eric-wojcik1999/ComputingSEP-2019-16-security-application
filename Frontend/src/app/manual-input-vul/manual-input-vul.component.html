@@ -1,0 +1,152 @@
+<h1>Add new vulnerability</h1>
+
+<div class="container">
+<form [formGroup] = "vul_details">
+  <!-- <div class = "grid-layout"> -->
+    <div class="space-4-wrapper">
+      <div class="space-4">
+        <!-- Vul name -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Vulnerability Name </mat-label>
+               <input matInput formControlName="vul_name" autocomplete="off" required>
+            </mat-form-field>
+        </div>
+
+
+        <!-- Vul Status -->
+          <div class="small-input">
+            <mat-form-field appearance="outline">
+              <mat-label> Select Status </mat-label>
+              <mat-select formControlName="vul_status" required>
+                <mat-option *ngFor="let status of status_options" [value]="status.value"> {{status.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+         
+         <!-- Asset -->
+      <!--<div class="small-input">
+          <mat-form-field appearance="outline">
+             <mat-label> Asset ID </mat-label>
+             <input matInput formControlName="vul_asset" autocomplete="off" required>
+          </mat-form-field>
+      </div>-->
+      <div class="small-input">
+      <mat-form-field appearance="outline"> 
+          <mat-label> Asset </mat-label>
+          <mat-select formControlName="vul_asset" required>
+              <mat-option value="option" *ngFor="let element of assets" [value]="element.id">
+                  {{ element.name }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+
+
+      <!-- </div> -->
+      <!-- Column 2 -->
+      <!-- <div class="column"> -->
+        <!-- Vul Desc -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Vulnerability Description </mat-label>
+               <input matInput formControlName="vul_desc" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div> <!-- Space-4 1-->
+        
+    <div class="space-4">
+        <!-- Scan type -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+              <mat-label> Select Scan </mat-label>
+              <mat-select formControlName="vul_scan" required>
+                <mat-option *ngFor="let scan of scan_options" [value]="scan.value"> {{scan.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+
+
+        <!-- Solution -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Solution </mat-label>
+               <input matInput formControlName="vul_sol" autocomplete="off">
+            </mat-form-field>
+        </div>
+        
+
+        <!-- Severity -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Severity (0-100) </mat-label>
+               <input matInput formControlName="vul_sev" autocomplete="off" required>
+            </mat-form-field>
+        </div>
+
+        <!-- Reference -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Reference (If Available) </mat-label>
+               <input matInput formControlName="vul_ref" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="space-4">
+        <!-- CVE -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> CVS Score (If Available) </mat-label>
+               <input matInput formControlName="vul_cvs" autocomplete="off">
+            </mat-form-field>
+        </div>
+
+        <!-- Date Discovered -->
+
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Date Discovered (YYYY-MM-DD) </mat-label>
+               <input matInput formControlName="vul_datedisc" autocomplete="off" required>
+            </mat-form-field>
+        </div>
+
+        <!-- Date Modified -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Date Modified (YYYY-MM-DD)</mat-label>
+               <input matInput formControlName="vul_datemod" autocomplete="off">
+            </mat-form-field>
+        </div>
+        
+        <!-- Date Resolved -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Date Resolved (YYYY-MM-DD)</mat-label>
+               <input matInput formControlName="vul_dateres" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="space-4">
+    <!-- Action Plan -->
+        <div class="small-input">
+            <mat-form-field class="move" appearance="outline">
+               <mat-label> Action Plan </mat-label>
+               <textarea matInput formControlName="vul_plan" autocomplete="off"></textarea>
+            </mat-form-field>
+        </div>
+   <div class="small-input">
+     <div class=button>
+      <!-- Preview Button -->
+      <button mat-flat-button (click) = "openDialog()"> Preview Vulnerability </button>
+      <!-- Submit Button -->
+      <button mat-flat-button [disabled]="!vul_details.valid" (click) = "onSubmit()"> Submit Vulnerability </button>
+    </div>  
+   </div>
+    </div> <!-- space -4 DIV CLOSE-->
+   </div>
+</form>
+</div>
+
+<form [formGroup] = "vul_details" (ngSubmit) = "onSubmit()"></form>

@@ -1,0 +1,98 @@
+/* 
+Vulnerability Management Tool Reset Stylesheet
+	V-1.0
+	Updated: 31/5/2019
+	Author: Ben Dennis
+*/
+
+html, body, div, span, object, iframe, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, del, abbr, address, cite,
+dfn, em, img, ins, code, small, samp, strong, sup, var,
+sub, b, i , del, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, tbody, tfoot, caption,
+tr, th, td, canvas, details, article, aside, figcaption, figure,
+header, footer, hgroup, menu, nav, section, summary, time,
+mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+/* General readability */
+body {
+	line-height: 1;
+}
+
+/* Handling links */
+a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	text-decoration: none;
+}
+
+/* Background overwrites in case of user-agent styles */
+ins {
+	background-color: #FFF;
+	color: #000;
+	text-decoration: none;
+}
+/* Menu loss of random circle thingo */
+nav ul {
+	list-style: none;
+}
+
+/* Misc stuff so it grounds nicely on the chance
+that CSS goes AWOL with flex */
+article, aside, details, menu, nav, section,
+figure, figcaption, footer, header, hgroup {
+	display: block;
+}
+/* Quoteth the 1st! */
+blockquote, q {
+	quotes: none;
+}
+/* Quotheth the 2nd! */
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:'';
+	content: none;
+}
+/* Dealing with the abbrevs */
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+/* Belar, Mara and Nedra, pray there isn't a table */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* Uses basic em defaults for responsive needs */
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #CCC;
+	margin: 1em 0;
+	padding: 0;
+}
+/* House cleaning */
+input, select {
+	vertical-align: middle;
+}
+/* Who even uses this anymore, but its here jic */
+del {
+	text-decoration: line-through;
+}
+mark {
+	background-color: #FF5;
+	color: #333;
+	font-style: italic;
+	font-weight: bold;
+}

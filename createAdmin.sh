@@ -1,0 +1,1 @@
+docker-compose run --rm --name VMA_admin -e POSTGRES_PASSWORD=vmaIsAmazingTechnologyThanksEric app /bin/bash -c "cd Backend/projectB/ && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py createAdmin"

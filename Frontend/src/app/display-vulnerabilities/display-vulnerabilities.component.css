@@ -1,0 +1,148 @@
+h1 {
+    color: darkblue;
+}
+
+.wrapper{
+    width: 95%;
+    margin-top: 1%;
+    margin-left: 1%;
+    -webkit-box-shadow: -9px -10px 10px 1px #CCC;
+    -moz-box-shadow: -9px -10px 10px 1px #CCC;
+    box-shadow: 9px 10px 10px 1px #CCC;
+    height: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid #DDD;
+}
+
+.searchDivs{
+    padding-left: 1%;
+    flex-grow: 1;
+}
+
+mat-dialog-content {
+    overflow:inherit; 
+}
+#form-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+#top-row {
+    margin-top: 2%;
+    margin-right: 1%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+#middle-row {
+    margin-right: 1%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+#bottom-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: flex-end;
+}
+
+.mat-form-field{
+    width: 100%;
+}
+
+#querySearchButton{
+    margin-bottom: 1%;
+    width: 20%;
+    margin-right: 1%;
+    background-color: rgb(2, 2, 206);
+    color: #FFF;
+    cursor: pointer;
+}
+
+#querySearchButton:hover{
+    background-color: blue;
+    color:white;
+}
+
+
+
+#vulnTable{
+    width: 95%;
+    margin-left: 1%;
+    position: sticky;
+    margin-top: 2%;
+    max-height: 75%;
+    overflow: auto;
+}
+
+.mat-header-cell, .mat-cell{
+    padding:10px 50px 10px;
+}
+
+
+
+
+.container {
+    margin-top: 2%;
+    margin-left: 1%;
+    width: 95%;
+    border: 1px solid #EEE;
+    -webkit-box-shadow: -9px -10px 10px 1px #CCC;
+    -moz-box-shadow: -9px -10px 10px 1px #CCC;
+    box-shadow: 9px 10px 10px 1px #CCC;
+}
+
+.mat-flat-button{
+    background-color: rgb(2, 2, 206);
+    color: white;
+    height: 6vh;
+    margin-left: 1%;
+    align-content: center;
+    place-content: center center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.small-input {
+    margin-top: 2%;
+    margin-left: 1%;
+    flex-direction: row;
+    align-self: center;
+    flex-grow: 1;
+}
+
+.move {
+    width: 91% !important;
+}
+
+.space-4 {
+    margin-right: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.space-4-wrapper {
+    margin-top: 2%;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+    place-content: center center;
+}

@@ -1,0 +1,69 @@
+<h1> Companies </h1>
+<div class="wrapper">
+    <form (ngSubmit)="searchField($event)" id="form-wrapper">
+    <div id="top-row">
+        <div class="searchDivs">
+            <mat-form-field appearance="outline" id="nameMatForm" >
+                    <mat-label>Company Name</mat-label>
+                    <input matInput placeholder="Enter Company Name" id="companyNameID" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="searchDivs">
+            <mat-form-field appearance="outline" id="descriptionMatForm">
+                    <mat-label>Company Description</mat-label>
+                    <input matInput placeholder="Enter Company Description" id="companyDescriptionID" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="searchDivs">
+            <mat-form-field appearance="outline" id="numProductsMatForm">
+                    <mat-label>Company Number of Products</mat-label>
+                    <input matInput placeholder="Enter Company Number of Products" id="companyNumProductsID" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="searchDivs">
+            <mat-form-field appearance="outline" id="securityPostureMatForm">
+                    <mat-label>Company Security Posture</mat-label>
+                    <input matInput placeholder="Enter Company Security Posture" id="companySecurityPostureID" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+    <div id="bottom-row">
+        <!-- <div class="searchDivs"> -->
+        <button type="submit" class="button" mat-button id="querySearchButton">Search</button>
+    </div>
+        <!-- </div> -->
+    </form>
+</div>
+
+<div class="company-table mat-elevation-z8" id="companyTable">
+  <mat-table  [dataSource]="dataSource" id="table" matSort>
+      <ng-container matColumnDef="companyID">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Company ID </mat-header-cell>
+          <mat-cell *matCellDef="let company">{{company.companyID}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="companyName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
+          <mat-cell *matCellDef="let company">{{company.companyName}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="companyDescription">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Company Description </mat-header-cell>
+          <mat-cell class="description-cell"
+                    *matCellDef="let company">{{company.companyDescription}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="companyNumProducts">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Company Number of Products</mat-header-cell>
+          <mat-cell class="numProducts-cell"
+                    *matCellDef="let company">{{company.companyNumProducts}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="companySecurityPosture">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Company Security Posture</mat-header-cell>
+          <mat-cell class="securityPosture-cell"
+                    *matCellDef="let company">{{company.companySecurityPosture}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator [length]="numberOfEntries" [pageSize]="10" [pageSizeOptions]="[1,2,25,50]" showFirstLastButtons>
+  </mat-paginator>
+
+</div>

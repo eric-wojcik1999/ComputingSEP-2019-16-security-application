@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Asset Details</h1>
+
+<div mat-dialog-content>
+    
+    <b>Name</b>: {{data.asset_name}} <br>
+    <b>Type</b>: {{data.asset_type}} <br>
+    <b>Version</b>: {{data.asset_version}} <br>
+    <b>Owner</b>: {{data.asset_owner}} <br>
+    <b>History</b>: {{data.asset_history}} <br>
+    <b>Description</b>: {{data.asset_desc}} <br>
+    <b>Host Address</b>: {{data.asset_host_addr}} <br>
+    <b>MAC Address</b>: {{data.asset_mac}} <br>
+    <b>Domain</b>: {{data.asset_domain}} <br>
+    <b>Platform</b>: {{data.asset_platform}} <br>
+    <b>Features</b>: {{data.asset_features}} <br>
+    <b>Business Criticality</b>: {{data.asset_business_crit}} <br>
+    <b>Estimated Worth</b>: {{data.asset_est_worth}} <br>
+    <b>Department</b>: {{data.asset_dept}} <br>
+    <b>Company</b>: {{data.asset_company}} <br>
+    <br>
+</div>
+
+<div mat-dialog-actions>
+    <!-- button to cancel out of the dialog view -->
+    <button mat-button (click) = "clickCancel()">Cancel</button>
+  <!--  <button mat-button> Cancel </button>-->
+    
+  <!--<button mat-button (click) = "clickSubmit()">Submit</button>-->
+    <!--< button mat-button>Submit</button>-->
+ 
+</div>

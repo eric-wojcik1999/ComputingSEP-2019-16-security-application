@@ -1,0 +1,181 @@
+<!-- Everything Under This is the mat-select-->
+<div class="example-container">
+    <form [formGroup]="add_user_deets">
+        <!-- First Name -->
+        <mat-form-field>
+            <input matInput type="text" placeholder="First Name" formControlName="firstname" required>
+        </mat-form-field>
+
+        <!-- Last Name -->
+        <mat-form-field>
+            <input matInput type="text" placeholder="Last Name" formControlName="lastname" required>
+        </mat-form-field>
+
+        <!-- Username -->
+        <mat-form-field>
+            <input matInput type="text" placeholder="Username" formControlName="user_name" required>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field >
+            <input matInput placeholder="Password" type="password" formControlName="password"  required>
+        </mat-form-field>
+
+        <!-- Re-enter Passowrd -->
+        <mat-form-field>
+            <input matInput placeholder="Confirm Password" type="password" formControlName="confirm_password" required>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field>
+            <input matInput type="text" placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field>
+            <input matInput type="text" placeholder="Phone" formControlName="phone">
+        </mat-form-field>
+
+        <!-- Company -->
+        <mat-form-field>
+            <mat-select placeholder="Company" formControlName="company" required>
+                <mat-option *ngFor="let element of companies" [value]="element.id">
+                    {{ element.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Company Field with the textbox -->
+        <!-- <mat-form-field>
+            <input matInput placeholder="Company" formControlName="company">
+        </mat-form-field> -->
+
+
+        <!-- isAdmin -->
+         <mat-checkbox type="hidden" formControlName="is_admin">Admin</mat-checkbox>
+
+       <!-- Submit Button -->
+        <button mat-raised-button color="primary" (click)="onSubmitAdd()" style="margin-left: 2%">Submit</button>
+    </form>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Everything Under Here is just with basic select -->
+<!-- <div class="example-container">
+    <form [formGroup]="add_user_deets">
+        <!First Name -->
+        <!-- <div>
+            <input matInput type="text" placeholder="First Name" formControlName="firstname" required>
+        </div> -->
+
+        <!-- Last Name -->
+        <!-- <div>
+            <input matInput type="text" placeholder="Last Name" formControlName="lastname" required>
+        </div> -->
+
+        <!-- Username -->
+        <!-- <div>
+            <input matInput type="text" placeholder="Username" formControlName="user_name" required>
+        </div> -->
+
+        <!-- Password -->
+        <!-- <div>
+            <input matInput placeholder="Password" type="password" formControlName="password" required>
+        </div> -->
+
+        <!-- Re-enter Passowrd -->
+        <!-- <div>
+            <input matInput placeholder="Confirm Password" type="password" formControlName="confirm_password" required>
+        </div> -->
+
+        <!-- Email -->
+        <!-- <div>
+            <input matInput type="text" placeholder="Email" formControlName="email">
+        </div> -->
+
+        <!-- Phone -->
+        <!-- <div>
+            <input matInput type="text" placeholder="Phone" formControlName="phone">
+        </div> -->
+
+        <!-- Company -->
+        <!-- <select matSelect placeholder="Company" formControlName="company" required>
+            <option matOption *ngFor="let element of companies" [value]="element.id">
+                {{ element.name }}
+            </option>
+        </select>
+         -->
+        <!-- isAdmin -->
+        <!-- <mat-checkbox type="hidden" formControlName="is_admin">Admin</mat-checkbox> -->
+
+        <!-- Submit Button -->
+        <!-- <button mat-raised-button color="primary" (click)="onSubmitAdd()" style="margin-left: 2%">Submit</button>
+    </form> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

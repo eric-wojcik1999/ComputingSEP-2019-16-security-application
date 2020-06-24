@@ -1,0 +1,9 @@
+/* CSS for Alert Box */
+.alert {
+    display: flex;
+    font-size: 0.7em;
+    padding: 15px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}

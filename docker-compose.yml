@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+ db:
+  container_name: VMA_postgres
+  image: postgres
+  restart: always
+  environment:
+    POSTGRES_USER: vmaclientman
+    POSTGRES_PASSWORD: vmaIsAmazingTechnologyThanksEric
+    POSTGRES_DB: VMADB
+  volumes:
+    - pgdata:/var/lib/postgresql/data
+ app:
+  container_name: VMA_server
+  environment:
+    POSTGRES_PASSWORD: vmaIsAmazingTechnologyThanksEric
+  build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+  command: >
+    bash -c "while !</dev/tcp/db/5432; do sleep 1; done; cd Backend/projectB/ && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runsslserver 0.0.0.0:8000"
+  expose:
+    - "8000"
+  ports:
+    - "8000:8000"
+  volumes:
+   - .:/ComputingSEP-2019-16-security-application
+  depends_on:
+   - db   
+ app_front:
+  image: 'vma_angular-app'
+  container_name: VMA_app
+  build:
+    context: .
+    dockerfile: ./Frontend/Dockerfile
+  command: >
+    
+  expose:
+    - "4200"
+    - "80"
+  ports:
+    - "80:80"
+  volumes:
+    - .:/app
+  depends_on:
+    - app
+
+volumes:
+  pgdata:

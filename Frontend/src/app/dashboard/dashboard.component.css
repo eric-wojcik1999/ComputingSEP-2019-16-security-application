@@ -1,0 +1,77 @@
+/* CSS for Dashboard */
+.flex-container {
+    display: flex;
+    flex-direction:column;
+    background-color: #CCC;
+    height: 100%;
+}
+
+.flex-container > div {
+    display: flex;
+    font-size: 28px;
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 48.5%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+/* 4 Square Quadrants */
+.quads {
+    background-color: #EEE;
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+#top-left {
+
+}
+
+#top-right {
+
+}
+
+#bottom-left {
+}
+
+#bottom-right {
+}
+
+/* CSS for the top Button Bar */
+.button-bar {
+    display: flex;
+    background-color: darkblue;
+    justify-content: space-evenly;
+    height: 5em;
+}
+
+/* Configure button individually */ 
+.button-bar > button {
+    display: flex;
+    height: 5em;
+    top: 0.3em;
+}
+
+/* Angular Mat-Table */
+table {
+    width: 95%;
+    height: 95%;
+}
+
+/* For dashboard card titles */
+mat-card-header{
+    display: flex;
+    justify-content: center;
+}

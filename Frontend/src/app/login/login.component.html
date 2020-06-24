@@ -1,0 +1,9 @@
+<div id="logo"><img src="../../assets/VMA-Logo.png"></div>
+<div style="text-align: center" id="formContent" class="container">
+  <br>
+  Username: <input [(ngModel)]="user.username" type="text" autocomplete="off"><br>
+  Password: <input [(ngModel)]="user.password" type="password" autocomplete="off"><br>
+  Verification Code: <input [(ngModel)]="auth.code" type="text" autocomplete="off"><br>
+  <button mat-flat-button (click)="getCode()" type="submit">GET CODE</button><br>
+  <button mat-flat-button (click)="loginUser()" type="submit">Login User</button><br>
+</div>

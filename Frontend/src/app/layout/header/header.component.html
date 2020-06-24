@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+	<a [routerLink]="['/dashboard']">
+      <div id="logo">
+		<img src="../../assets/VMA-Logo.png">
+	  </div>
+	</a>
+	<h2>Hello, {{ username }}</h2>
+	<div fxLayout="row"></div>
+	<div fxLayout="row"></div>
+	<div fxLayout="row"></div>
+	<div fxLayout="row" id="rightSide">	</div>
+  	<div fxLayout="row" fxLayoutGap="10px">
+		<button class="header-button" mat-button><a [routerLink]="'/man-acc'"> User Manage </a></button>
+		<button (click)="logoutUser()" class="header-button" mat-button class="mat-button mat-button-base redboi">Logout</button>
+	</div>
+</div>

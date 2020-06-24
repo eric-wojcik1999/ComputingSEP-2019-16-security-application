@@ -1,0 +1,167 @@
+<h1>Add new asset</h1>
+<div class="container">
+<form [formGroup] = "asset_details">
+       <!-- Row Column 1 -->
+
+        <!-- Asset Name -->
+      <div class="space-5-wrapper">
+         <div class= "space-5">
+           <div class="small-input">
+             <mat-form-field appearance="outline">
+                <mat-label> Asset Name </mat-label>
+                <input matInput formControlName="asset_name" id="blanks" autocomplete="off" required>
+             </mat-form-field>
+          </div>
+
+        <!-- Type -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+              <mat-label> Select Type </mat-label>
+              <mat-select formControlName="asset_type" required>
+                <mat-option *ngFor="let type of type_options" [value]="type.value"> {{type.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+           </div>
+
+
+        <!-- Asset version -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Version </mat-label>
+               <input matInput formControlName="asset_version" autocomplete="off">
+            </mat-form-field>
+        </div>
+
+        <!-- Asset Owner ¸-->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Owner </mat-label>
+               <input matInput formControlName="asset_owner" autocomplete="off">
+            </mat-form-field>
+        </div>
+
+
+        <!-- Asset History -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> History </mat-label>
+               <input matInput formControlName="asset_history" autocomplete="off">
+            </mat-form-field>
+        </div>
+      </div> <!-- End Space 5 1-->
+   <!-- </div>  ROW -->
+   <div class= "space-5">
+      <!-- Column 2 -->
+      <!-- <div class="column"> -->
+
+        <!-- Asset Description -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Description </mat-label>
+               <input matInput formControlName="asset_desc" autocomplete="off" required>
+            </mat-form-field>
+        </div>
+
+
+
+        <!-- Host Address -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Host Address </mat-label>
+               <input matInput formControlName="asset_host_addr" autocomplete="off">
+            </mat-form-field>
+        </div>
+        
+        <!-- MAC-->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Mac Address </mat-label>
+               <input matInput formControlName="asset_mac" autocomplete="off">
+            </mat-form-field>
+        </div>
+        
+
+
+        <!-- Platform -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Platform </mat-label>
+               <input matInput formControlName="asset_platform" autocomplete="off">
+            </mat-form-field>
+        </div>
+
+        <!-- Domain -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Domain </mat-label>
+               <input matInput formControlName="asset_domain" autocomplete="off">
+            </mat-form-field>
+        </div>
+   </div> <!-- End Space 5 2-->
+   <div class= "space-5">
+      <!-- Column 3 -->
+      <!-- <div class="column"> -->
+        <!-- Business Crit -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+              <mat-label> Select Business Criticality </mat-label>
+              <mat-select formControlName="asset_business_crit">
+                <mat-option *ngFor="let crit of crit_options" [value]="crit.value"> {{crit.name}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- Estimated Worth -->  
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Estimated Worth </mat-label>
+               <input matInput formControlName="asset_est_worth" autocomplete="off" >
+            </mat-form-field>
+        </div>
+
+
+
+
+        <!-- Department -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Department </mat-label>
+               <input matInput formControlName="asset_dept" autocomplete="off">
+            </mat-form-field>
+        </div>
+      <!-- <div class="column"> -->
+       
+      <!-- Company -->
+      <div class="small-input">
+         <mat-form-field appearance="outline"> 
+            <mat-label> Company </mat-label>
+            <mat-select formControlName="asset_company" required>
+                <mat-option value="option" *ngFor="let element of companies" [value]="element.name">
+                    {{ element.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+         
+  
+
+        <!-- Features -->
+        <div class="small-input">
+            <mat-form-field appearance="outline">
+               <mat-label> Features </mat-label>
+               <input matInput formControlName="asset_features" autocomplete="off">
+            </mat-form-field>
+        </div>        
+   </div> <!-- End Space 5 3-->
+   </div> <!-- End Space 5 Wrapper.-->
+      <div class=force-right> 
+            <!-- Testing pop up for preview asset button -->
+            <button mat-flat-button  (click) = "openDialog()">Preview Asset</button>
+            <!-- Submit Asset -->
+            <button id="move-right" mat-flat-button [disabled]="!asset_details.valid" (click) = "onSubmit()">Submit Asset</button>
+      </div>  
+    <!-- Buttons -->
+</form>
+</div>
+<form [formGroup] = "asset_details" (ngSubmit) = "onSubmit()" >
+

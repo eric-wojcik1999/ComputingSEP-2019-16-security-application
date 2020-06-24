@@ -1,0 +1,16 @@
+<h1 mat-dialog-title><strong>Delete User</strong></h1>
+<div mat-dialog-content>
+    <div *ngIf="data.name != 0">
+        <div class="alert" >
+            Are you sure you want to delete {{ data.name }}
+            <!-- <button mat-raised-button color="warn" (click)="confirmDelete(data.name)">Delete</button> -->
+            <button mat-raised-button color="primary" (click)="closeDialog()">Cancel</button>
+        </div>
+    </div>
+    <div *ngIf="data.name == 0">
+        <div class="alert">
+            Please select a user to delete
+            <button mat-raised-button color="primary" (click)="closeDialog()">Cancel</button>
+        </div>
+    </div>
+</div>

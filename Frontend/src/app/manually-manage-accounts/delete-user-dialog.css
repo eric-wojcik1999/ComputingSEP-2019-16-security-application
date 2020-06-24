@@ -1,0 +1,14 @@
+/* CSS for Alert Box */
+.alert {
+    display: flex;
+    font-size: 1.3em;
+    color: black;
+    padding: 5%;
+    margin-left: 2%;
+    align-items: center;
+    align-content: center;
+}
+
+.alert button {
+    margin-left: 5%;
+}

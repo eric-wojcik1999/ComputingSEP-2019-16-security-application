@@ -1,0 +1,24 @@
+/* CSS for Manually managing account */
+.button-container {
+    background-color: #EEE;
+    height: 4.3em;
+}
+
+.button-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button-bar > button {
+    display: flex;
+    height: 2.5em;
+    top: 1.3em;
+}
+.topbar {
+    background-color: darkblue;
+    color: #FFF;
+}
+table {
+    width: 100%;
+}

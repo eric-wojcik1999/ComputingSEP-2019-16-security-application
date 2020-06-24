@@ -1,0 +1,24 @@
+Asset IP Address,Asset MAC Addresses,Service Port,Service Product,Service Protocol,Vulnerability ID,Vulnerability Title,Vulnerability CVE IDs,Vulnerability CVSS Score,Vulnerability Severity Level,Vulnerability Description,Vulnerability Solution,Vulnerability Reference IDs
+127.0.0.1,"	02:AC:CB:8A:29:50",445,,tcp,cifs-smb2-signing-not-required,SMBv2 signing not required,,6.2,6,"This system enables, but does not require SMB signing. SMB signing allows the recipient of SMB packets to confirm their authenticity and helps prevent man in the middle attacks against SMB. SMB 2.x signing can be configured in one of two ways: not required (least secure) and required (most secure).","* Microsoft Windows
+      Configure SMB signing for Windows
+
+      
+       Configure the system to enable or require SMB signing as appropriate. The method and effect of doing this is system specific so please see  this TechNet article (http://blogs.technet.com/b/josebda/archive/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2.aspx)  for details. Note: ensure that SMB signing configuration is done for incoming connections (Server). 
+
+
+
+ * Samba
+      Configure SMB signing for Samba
+
+      
+       Configure Samba to enable or require SMB signing as appropriate. To enable SMB signing, put the following in the Samba configuration file, typically smb.conf, in the global section: 
+       server signing = auto 
+ To require SMB signing, put the following in the Samba configuration file, typically smb.conf, in the global section: 
+       server signing = mandatory",
+127.0.0.1,"	02:AC:CB:8A:29:50",5432,,tcp,database-open-access,Database Open Access,,5,5,"The database allows any remote system the ability to connect to it. It is recommended to limit direct access to trusted systems because databases may contain sensitive data, and new vulnerabilities and exploits are discovered routinely for them. For this reason, it is a violation of PCI DSS section 1.3.6 to have databases listening on ports accessible from the Internet, even when protected with secure authentication mechanisms.","Restrict database access
+
+
+ Configure the database server to only allow access to trusted systems. For example, the PCI DSS standard requires you to place the database in an internal network zone, segregated from the DMZ",
+127.0.0.1,"	02:AC:CB:8A:29:50",1900,,udp,upnp-ssdp-amplification,UPnP SSDP Traffic Amplification,,0,1,"A UPnP SSDP M-SEARCH request can be used to search a network for UPNP devices. An M-SEARCH response is roughly 30x the size of the request and can be distributed across multiple responses from multiple hosts, and because it utilizes UDP, this can be used to conduct traffic amplification attacks against other assets, typically in the form of distributed reflected denial of service (DRDoS) attacks.","Restrict access to UPnP
+
+ Restrict access to the UPnP service to only trusted assets.",CERT:TA14-017A

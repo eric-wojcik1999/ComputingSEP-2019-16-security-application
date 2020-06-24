@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><OWASPZAPReport generated="Fri, 29 Mar 2019 21:02:52" version="2.3.1">
+<site host="ocsp.digicert.com" name="http://ocsp.digicert.com" port="80" ssl="false"><alerts><alertitem>
+  <pluginid>10021</pluginid>
+  <alert>X-Content-Type-Options header missing</alert>
+  <riskcode>1</riskcode>
+  <reliability>2</reliability>
+  <riskdesc>Low (Warning)</riskdesc>
+  <desc>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'.
+	This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type.
+	Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	</desc>
+  <uri>http://ocsp.digicert.com/</uri>
+  <param/>
+  <attack/>
+  <otherinfo/>
+  <solution>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.
+	If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+	</solution>
+  <reference>
+	</reference>
+</alertitem>
+</alerts></site></OWASPZAPReport>

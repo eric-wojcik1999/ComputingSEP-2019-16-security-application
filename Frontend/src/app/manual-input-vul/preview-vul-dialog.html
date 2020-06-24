@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Vulnerabilty Details</h1>
+
+<div mat-dialog-content>
+    <b>Name</b>: {{data.vul_name}} <br>
+    <b>Description</b>: {{data.vul_desc}} <br>
+    <b>Status</b>: {{data.vul_status}} <br>
+    <b>Asset</b>: {{data.vul_asset}} <br>
+    <b>Solution</b>: {{data.vul_sol}} <br>
+    <b>Severity</b>: {{data.vul_sev}} <br>
+    <b>Scan Type</b>: {{data.vul_scan}} <br>
+    <b>Reference (if available)</b>: {{data.vul_ref}} <br>
+    <b>CVS Score</b>: {{data.vul_cvs}} <br>
+    <b>Date Discovered</b>: {{data.vul_datedisc}} <br>
+    <b>Date Modified</b>: {{data.vul_datemod}} <br>
+    <b>Date Resolved</b>: {{data.vul_dateres}} <br>
+    <b>Action Plan</b>: {{data.vul_plan}} <br>
+    <br>
+</div>
+
+<div mat-dialog-actions>
+    <!-- button to cancel out of the dialog view -->
+    <button mat-button (click) = "clickCancel()">Cancel</button>
+  <!--  <button mat-button> Cancel </button>-->
+    <!-- potential button to submit from the dialog box?-->
+    
+  <!--<button mat-button (click) = "clickSubmit()">Submit</button>-->
+    <!--< button mat-button>Submit</button>-->
+ 
+</div>

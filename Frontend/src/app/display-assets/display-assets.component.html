@@ -1,0 +1,240 @@
+<h1> Assets </h1>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">  
+       <!-- Build Column Names -->
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let asset"> {{asset[column]}} </td>
+  </ng-container>
+  
+    <!-- Put all the details into the expanded rows -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let asset" [attr.colspan]="asCols.length">
+      <div class="asset-detail"
+           [@detailExpand]="asset == expandAsset ? 'expanded' : 'collapsed'">
+        <div class="criticality">
+          <div> Criticality: </div>
+          <div class="critical-level"> {{asset.Crit}} </div>
+          <div class="worth"> <b>${{asset.Worth}}</b> </div>
+        </div>
+        <div class="asset-expanded-info">
+          <div>
+            <!-- Will fix actual layout next sprint, fucnctionality first -->
+            <div><b><p>Asset Detailed Information:</p></b></div>
+            <div class="small-box">
+              <p><strong>ID:</strong> {{asset.ID}}</p>
+              <p><strong>Name:</strong> {{asset.Name}}</p>
+              <p><strong>Host:</strong> {{asset.Host}}</p>
+              <p><strong>Owner:</strong> {{asset.Owner}}</p>
+              <p><strong>Department:</strong> {{asset.Dept}}</p>
+              <p><strong>Mac Addr:</strong> {{asset.Mac}}</p>
+            </div>
+            <div class="small-box">
+              <p><strong>Type:</strong> {{asset.Type}}</p>
+              <p><strong>Company:</strong> {{asset.Comp}}</p>
+              <p><strong>Version:</strong> {{asset.Version}}</p>
+              <p><strong>Features:</strong> {{asset.Feat}}</p>
+              <p><strong>Platform:</strong> {{asset.Platform}}</p>
+              <p><strong>Domain:</strong> {{asset.Domain}}</p>
+            </div>
+            <div class="small-box">
+              <p><strong>Description:</strong> {{asset.Desc}}</p>
+            </div>
+            <div class="small-box">
+              <p><strong>History:</strong> {{asset.Hist}}</p>
+            </div>
+            <div>
+              <button class="edit" mat-raised-button (click)="onSubmit(asset)" >Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let asset; columns: displayedColumns;"
+      class="asset-row"
+      [class.asset-expanded-row]="expandAsset === asset"
+      (click)="expandAsset = expandAsset === asset ? null : asset">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="asset-detail-row"></tr>
+</table>
+
+
+
+<div class="container" id="shownAndUnshown" style="display:none">
+  <h1>Edit asset</h1>
+  <form [formGroup] = "asset_details">
+    <!-- <div class = "grid-layout">   -->
+    <!-- <div class="row"> -->
+        <!-- Row Column 1 -->
+        <!-- <div class="column"> -->
+
+          <!-- Asset Name -->
+        <div class="space-5-wrapper">
+          <div class= "space-5">
+            <div class="small-input">
+              <mat-form-field appearance="outline">
+                  <mat-label> Asset Name </mat-label>
+                  <input matInput formControlName="asset_name" id="blanks" autocomplete="off" required>
+              </mat-form-field>
+            </div>
+
+          <!-- Type -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Select Type </mat-label>
+                <mat-select formControlName="asset_type" required>
+                  <mat-option *ngFor="let type of type_options" [value]="type.value"> {{type.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+          <!-- Asset version -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Version </mat-label>
+                <input matInput formControlName="asset_version" autocomplete="off">
+              </mat-form-field>
+          </div>
+
+          <!-- Asset Owner ¸-->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Owner </mat-label>
+                <input matInput formControlName="asset_owner" autocomplete="off">
+              </mat-form-field>
+          </div>
+
+
+          <!-- Asset History -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> History </mat-label>
+                <input matInput formControlName="asset_history" autocomplete="off">
+              </mat-form-field>
+          </div>
+        </div> <!-- End Space 5 1-->
+    <!-- </div>  ROW -->
+    <div class= "space-5">
+        <!-- Column 2 -->
+        <!-- <div class="column"> -->
+
+          <!-- Asset Description -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Description </mat-label>
+                <input matInput formControlName="asset_desc" autocomplete="off" required>
+              </mat-form-field>
+          </div>
+
+
+
+          <!-- Host Address -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Host Address </mat-label>
+                <input matInput formControlName="asset_host_addr" autocomplete="off">
+              </mat-form-field>
+          </div>
+          
+          <!-- MAC-->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Mac Address </mat-label>
+                <input matInput formControlName="asset_mac" autocomplete="off">
+              </mat-form-field>
+          </div>
+          
+
+
+          <!-- Platform -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Platform </mat-label>
+                <input matInput formControlName="asset_platform" autocomplete="off">
+              </mat-form-field>
+          </div>
+
+          <!-- Domain -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Domain </mat-label>
+                <input matInput formControlName="asset_domain" autocomplete="off">
+              </mat-form-field>
+          </div>
+    </div> <!-- End Space 5 2-->
+    <div class= "space-5">
+        <!-- Column 3 -->
+        <!-- <div class="column"> -->
+          <!-- Business Crit -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Select Business Criticality </mat-label>
+                <mat-select formControlName="asset_business_crit">
+                  <mat-option *ngFor="let crit of crit_options" [value]="crit.value"> {{crit.name}} </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+
+          <!-- Estimated Worth -->  
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Estimated Worth </mat-label>
+                <input matInput formControlName="asset_est_worth" autocomplete="off" >
+              </mat-form-field>
+          </div>
+
+
+
+
+          <!-- Department -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Department </mat-label>
+                <input matInput formControlName="asset_dept" autocomplete="off">
+              </mat-form-field>
+          </div>
+        <!-- <div class="column"> -->
+          <!-- Company -->
+          <div class="small-input">
+          <mat-form-field appearance="outline"> 
+              <mat-label> Company </mat-label>
+              <mat-select formControlName="asset_company" required>
+                  <mat-option value="option" *ngFor="let element of companies" [value]="element.name">
+                      {{ element.name }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+
+          <!-- Features -->
+          <div class="small-input">
+              <mat-form-field appearance="outline">
+                <mat-label> Features </mat-label>
+                <input matInput formControlName="asset_features" autocomplete="off">
+              </mat-form-field>
+          </div>        
+    </div> <!-- End Space 5 3-->
+    </div> <!-- End Space 5 Wrapper.-->
+        <div class=force-right> 
+              <!-- Submit Asset -->
+              <button id="move-right" mat-flat-button [disabled]="!asset_details.valid" (click) = "editAsset()">Submit Asset</button>
+        </div>  
+      <!-- Buttons -->
+  </form>
+</div>
+
+
+<!--
+<mat-paginator [length]="numberOfEntries" [pageSize]="20" [pageSizeOptions]="[5,20,50,100]" showFirstLastButtons>
+</mat-paginator>-->
+
+

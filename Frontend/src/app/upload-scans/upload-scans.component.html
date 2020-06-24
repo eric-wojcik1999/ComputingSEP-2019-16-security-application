@@ -1,0 +1,16 @@
+<h1>Upload Scans</h1>
+<div class="container">
+        <p>Please select the scan (CSV or XML) to upload using the button below.</p>
+    <div class="form-group">
+        <input type="file" id="scan" name="scan" (change)="fileProgress($event)" />
+    </div>
+    <div *ngIf="fileUploadProgress">
+        Upload progress: {{ fileUploadProgress }}
+    </div>
+    <div class="containerr" *ngIf="uploadedFilePath">
+        {{uploadedFilePath}}
+    </div>
+    <div class="form-group">
+        <button mat-flat-button class="btn btn-primary"  (click)="onSubmit()">Submit</button>
+    </div>    
+</div>

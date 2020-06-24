@@ -1,0 +1,46 @@
+{
+    "company": 
+    [
+        {"id":0, "name":"Human Resources", "numProducts":160, "securityPosture":1},
+        {"id":1, "name":"Marketing", "numProducts":25, "securityPosture":5},
+        {"id":2, "name":"Security", "numProducts":111, "securityPosture":9},
+        {"id":3, "name":"Finance", "numProducts":43, "securityPosture":4},
+        {"id":4, "name":"Management", "numProducts":404, "securityPosture":7},
+        {"id":5, "name":"Executives", "numProducts":102, "securityPosture":8},
+        {"id":6, "name":"Alderson", "numProducts":24, "securityPosture":3}
+    ],
+
+    "severity":
+    [
+        {"status":"Unhandled", "critical": 25, "high": 15, "medium":22, "low": 30},
+        {"status":"Handled", "critical": 40, "high": 23, "medium":29, "low": 15}
+    ],
+
+
+    "vulnerability":
+    [
+        {"name":"SQL Injection", "dateDiscovered":"01/01/2019", "dateResolved":"10/01/2019", "severity":90, "scanType":"Zap"},
+        {"name":"Cross Site Scripting", "dateDiscovered":"03/02/2019", "dateResolved":"11/02/2019", "severity":10, "scanType":"Nessus"},
+        {"name":"Broken Authentication and Session Management", "dateDiscovered":"14/02/2019", "dateResolved":"23/02/2019", "severity":50, "scanType":"Nexpose"},
+        {"name":"Cross Site Request Forgery", "dateDiscovered":"15/02/2019", "dateResolved":"21/02/2019", "severity":80, "scanType":"Manual Input"},
+        {"name":"Security Misconfiguration", "dateDiscovered":"01/04/2019", "dateResolved":"01/05/2019", "severity":70, "scanType":"Nmap"},
+        {"name":"Insecure Cryptographic Storage", "dateDiscovered":"23/01/2019", "dateResolved":"24/02/2019", "severity":40, "scanType":"Zap"},
+        {"name":"Failure to Restrict URL Access", "dateDiscovered":"16/01/2019", "dateResolved":"18/01/2019", "severity":30, "scanType":"Nessus"},
+        {"name":"Insufficient Transport Layer Security Protection", "dateDiscovered":"21/07/2019", "dateResolved":"24/07/2019", "severity":60, "scanType":"Nexpose"},
+        {"name":"Mihai on the network", "dateDiscovered":"11/08/2019", "dateResolved":"23/08/2019", "severity":110, "scanType":"Nmap"}  
+    ],
+
+    "assets":
+    [
+        {"name":"Asset A", "desc":"Mihai Detected on network", "owner":"Mihai", "business_crit":"0", "estWorth":10000},
+        {"name":"Asset B", "desc":"Eternal Blue Detected", "owner":"Mihai", "business_crit":"L", "estWorth":10000},
+        {"name":"Asset C", "desc":"Storage of Company Data", "owner":"Mihai", "business_crit":"M", "estWorth":10000}
+        
+    ],
+    
+    "accounts":
+    [
+        {"username":"admin", "password":"93Pg1khbiGQJQkSfrq5qTzZQzzRALYqO/KFDP9dRd8k=", "firstName":"default", "lastName":"Admin", "email":"example@email.com", "phone":8888888, "company":0, "isAdmin":true},
+        {"username":"Tofu", "password":"93Pg1khbiGQJQkSfrq5qTzZQzzRALYqO/KFDP9dRd8k=", "firstName":"Chris", "lastName":"Chang", "email":"burnervmafrontend@gmail.com", "phone":9999999, "company":1, "isAdmin":true}
+    ]
+}

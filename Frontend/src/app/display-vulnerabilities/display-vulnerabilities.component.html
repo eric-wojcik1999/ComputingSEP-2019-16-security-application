@@ -1,0 +1,244 @@
+<h1> Vulnerabilities </h1>
+
+<div class="wrapper">
+  <form (ngSubmit)="queryDatabase($event)" id="form-wrapper">
+    <div id="top-row">
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnIDMatForm" >
+                  <mat-label>Vulnerability ID</mat-label>
+                  <input matInput placeholder="Enter Vulnerability ID" id="vulnerabilityID" autocomplete="off">
+          </mat-form-field>
+        </div>
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnNameMatForm">
+                  <mat-label>Vulnerability Name</mat-label>
+                  <input matInput placeholder="Enter Vulnerability Name" id="vulnerabilityName" autocomplete="off">
+          </mat-form-field>
+        </div>
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnStatusMatForm">
+                  <mat-label>Vulnerability Status</mat-label>
+                  <input matInput placeholder="Enter Vulnerability Status" id="vulnerabilityStatus" autocomplete="off">
+          </mat-form-field>
+        </div>
+    </div> <!-- TOP ROW -->
+    <div id="middle-row">
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnSevMatForm">
+                  <mat-label>Vulnerability Severity</mat-label>
+                  <input matInput placeholder="Enter Vulnerability Severity" id="vulnerabilitySeverity" autocomplete="off">
+          </mat-form-field>
+        </div>
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnDescMatForm">
+                  <mat-label>Vulnerability Description</mat-label>
+                  <input matInput placeholder="Enter Vulnerability Description" id="vulnerabilityDescription" autocomplete="off">
+          </mat-form-field>
+        </div>
+        <div class="searchDivs">
+          <mat-form-field appearance="outline" id="vulnAssetMatForm">
+                  <mat-label>Asset Effected</mat-label>
+                  <input matInput placeholder="Enter Asset Effected ID" id="vulnerabilityAssetEffected" autocomplete="off">
+          </mat-form-field>
+        </div>
+    </div>  <!-- MIDDLE-ROW-->
+    <div id="bottom-row">
+      <button mat-button type="submit" class="button" id="querySearchButton">Search</button>
+    </div> <!-- BOTTOM ROW -->
+ </form>
+</div>
+
+
+
+<div class="company-table mat-elevation-z8" id="vulnTable">
+
+    <mat-table  [dataSource]="dataSource" id="table" matSort>
+  
+        <ng-container matColumnDef="vulnID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Vulnerability ID </mat-header-cell>
+            <mat-cell *matCellDef="let vulnerability" value="">{{vulnerability.vulnID}}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="vulnName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Vulnerability Name </mat-header-cell>
+            <mat-cell *matCellDef="let vulnerability" value="">{{vulnerability.vulnName}}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="vulnStatus">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Vulnerability Status </mat-header-cell>
+            <mat-cell *matCellDef="let vulnerability" value="">{{vulnerability.vulnStatus}}</mat-cell>
+  
+        </ng-container>
+  
+        <ng-container matColumnDef="vulnDescription">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Vulnerability Description</mat-header-cell>
+            <mat-cell *matCellDef="let vulnerability" value="">{{vulnerability.vulnDescription}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+             <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+             <mat-cell *matCellDef="let vulnerability"><button mat-raised-button (click)="openDialog(dataSource.filteredData.indexOf(vulnerability))" >More</button></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> Edit</mat-header-cell>
+            <mat-cell *matCellDef="let vulnerability"><button mat-raised-button (click)="startForm(dataSource.filteredData.indexOf(vulnerability))" >Edit</button></mat-cell>
+       </ng-container>
+
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+  
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        
+    </mat-table>
+
+    <mat-paginator [length]="numberOfEntries" [pageSize]="10" [pageSizeOptions]="[1,2,25,50]" showFirstLastButtons>
+    </mat-paginator>
+
+  </div>
+
+
+  <div class="container" id="shownAndUnshown" style="display:none">
+    <form [formGroup] = "vul_details">
+      <!-- <div class = "grid-layout"> -->
+        <div class="space-4-wrapper">
+          <div class="space-4">
+            <!-- Vul name -->
+            <div class="small-input">
+                <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Vulnerability Name </mat-label>
+                   <input matInput formControlName="vul_name" autocomplete="off" required>
+                </mat-form-field>
+            </div>
+    
+    
+            <!-- Vul Status -->
+              <div class="small-input">
+                <mat-form-field class="auto-width" appearance="outline">
+                  <mat-label> Select Status </mat-label>
+                  <mat-select formControlName="vul_status" required>
+                    <mat-option *ngFor="let status of status_options" [value]="status.value"> {{status.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+    
+    
+             
+             <!-- Asset -->
+             <div class="small-input">
+                <mat-form-field appearance="outline"> 
+                    <mat-label> Asset </mat-label>
+                    <mat-select formControlName="vul_asset" required>
+                        <mat-option value="option" *ngFor="let element of assets" [value]="element.id">
+                            {{ element.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div>
+          
+    
+    
+    
+          <!-- </div> -->
+          <!-- Column 2 -->
+          <!-- <div class="column"> -->
+            <!-- Vul Desc -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Vulnerability Description </mat-label>
+                   <input matInput formControlName="vul_desc" autocomplete="off">
+                </mat-form-field>
+            </div>
+        </div> <!-- Space-4 1-->
+            
+        <div class="space-4">
+            <!-- Scan type -->
+            <div class="small-input">
+               <mat-form-field class="auto-width" appearance="outline">
+                  <mat-label> Select Scan </mat-label>
+                  <mat-select formControlName="vul_scan" required>
+                    <mat-option *ngFor="let scan of scan_options" [value]="scan.value"> {{scan.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+    
+    
+            <!-- Solution -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Solution </mat-label>
+                   <input matInput formControlName="vul_sol" autocomplete="off">
+                </mat-form-field>
+            </div>
+            
+    
+            <!-- Severity -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Severity (0-100) </mat-label>
+                   <input matInput formControlName="vul_sev" autocomplete="off" required>
+                </mat-form-field>
+            </div>
+    
+            <!-- Reference -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Reference (If Available) </mat-label>
+                   <input matInput formControlName="vul_ref" autocomplete="off">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="space-4">
+            <!-- CVE -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> CVS Score (If Available) </mat-label>
+                   <input matInput formControlName="vul_cvs" autocomplete="off">
+                </mat-form-field>
+            </div>
+    
+            <!-- Date Discovered -->
+    
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Date Discovered (YYYY-MM-DD) </mat-label>
+                   <input matInput formControlName="vul_datedisc" autocomplete="off" required>
+                </mat-form-field>
+            </div>
+    
+            <!-- Date Modified -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Date Modified (YYYY-MM-DD)</mat-label>
+                   <input matInput formControlName="vul_datemod" autocomplete="off">
+                </mat-form-field>
+            </div>
+            
+            <!-- Date Resolved -->
+            <div class="small-input">
+              <mat-form-field class="auto-width" appearance="outline">
+                   <mat-label> Date Resolved (YYYY-MM-DD)</mat-label>
+                   <input matInput formControlName="vul_dateres" autocomplete="off">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="space-4">
+        <!-- Action Plan -->
+            <div class="small-input">
+              <mat-form-field class="auto-width move" appearance="outline">
+                   <mat-label> Action Plan </mat-label>
+                   <textarea matInput formControlName="vul_plan" autocomplete="off"></textarea>
+                </mat-form-field>
+            </div>
+       <div class="small-input">
+         <div class=button>
+          <!-- Submit Button -->
+          <button mat-flat-button [disabled]="!vul_details.valid" (click) = "editVulnerability()"> Submit Vulnerability </button>
+        </div>  
+       </div>
+        </div> <!-- space -4 DIV CLOSE-->
+       </div>
+    </form>
+    </div>
+    

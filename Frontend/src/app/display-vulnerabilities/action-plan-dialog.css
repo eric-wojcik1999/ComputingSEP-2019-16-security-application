@@ -1,0 +1,7 @@
+#dataDiv{
+    white-space: pre-wrap;
+}
+
+mat-dialog-content {
+    overflow:inherit; 
+}

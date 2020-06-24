@@ -1,0 +1,173 @@
+Webmap and Page Links::
+
+Legend ->
+	PageName:	 				Denotes a page
+	<Information>				Considered a global link
+	PageName:
+		SubPageName:			Page directly relates to parent
+	"SomeText"					Information about page
+
+	xyz -> abc					Element on page specifically redirects to this.
+	(SomeText)					Denotes context if appropriate.
+	-PageName 					Connects to this page.
+
+
+
+
+Dashboard:
+	"By Default dashbaoard should be able to reach almost every main page the user needs.
+	Or will adhere to three click design rule of being able to reach any page with three clicks from the dashboard."
+
+	-Upload
+	-Vulnerabilities
+	-Manage System
+	-Report Generation
+	-Settings
+	-User Specific Settings
+	-Asset Lists
+	-Reports
+	-Critical Alerts
+	-Users
+	-Tasks
+
+
+===========================================
+
+Upload:
+	"Page to navigate to a specific upload option"
+	<Included Links from Top and Side Bars>
+
+	-Add New Asset
+	-Add New Report
+	-Reports
+	-Asset View
+
+===========================================
+
+===========================================
+
+Add New Asset:
+	"Adds a new asset to the tool to be monitored"
+	<Included Links from Top and Side Bars>
+
+	Upload/Submit Button -> Asset View
+	PreviewAsset 		 -> Asset View (Unconfirmed)
+
+===========================================
+
+===========================================
+
+Vulnerabilities:
+	"All possible vulnerabilities uploaded to the tool and their rankings"
+	<Included Links from Top and Side Bars>
+	
+	-Critical Vulns
+	-High Vulns
+	-Medium Vulns
+	-Low Vulns
+
+	-Asset List
+	-Users
+
+	Critial:
+		-Asset View
+	High:
+		-Asset View
+	Medium:
+		-Asset View
+	Low:
+		-Asset Vew
+===========================================
+
+===========================================
+
+Critical Alerts:
+	"Assets that need to be handled ASAP as designated by user"
+	<Included Links from Top and Side Bars>
+	-Asset View
+	-Tasks
+	-Users
+
+===========================================
+
+===========================================
+
+Manage:
+	"Manage the tool, more like an indepth dashboard, but with specifications"
+	<Included Links from Top and Side Bars>
+	-Users (Quick Edit)
+	-Vulnerabilities
+	-Asset List (Quick Add/Remove)
+	-User Specific Settings (Editable)
+
+
+
+===========================================
+
+===========================================
+
+Asset List:
+	"List of all possible assets, sorted by category"
+	-Asset View
+	-Critial Alerts
+	-Tasks
+
+===========================================
+
+===========================================
+
+Asset View:
+	"This is a specific look at all the information about a specific aset"
+
+	<Included Links from Top and Side Bars>
+
+	-Asset List
+	-Tasks (Able to allocate to specific users)
+
+===========================================
+
+===========================================
+
+Users:
+	"Specific Users and or quick edits"
+
+	<Included Links from Top and Side Bars>
+
+	-User Page
+
+
+===========================================
+
+===========================================
+
+User Page:
+	"Overview of the user - Likely for use of admin/technician level only"
+
+	<Included Links from Top and Side Bars>
+
+	-User Specific Settings
+	-Tasks
+
+===========================================
+
+User Specific Settings:
+	"Changes to the user settings"
+
+	<Included Links from Top and Side Bars>
+
+	Save Changes -> User Page
+
+===========================================
+
+===========================================
+
+Tasks:
+	<Included Links from Top and Side Bars>
+
+	"Specifically what tasks are assigned to the logged in user"
+	
+	-Users
+	-Asset List
+	-Critical Alerts
+
+===========================================

@@ -1,0 +1,94 @@
+<h1> Report Generation </h1>
+<div id="gen">
+        <button mat-button id="gen-button" (click)="displayAll()"> Generate Report </button>
+        <button mat-button id="clear-button" (click)="clearFields()"> Clear Report </button>
+</div>
+
+
+
+<mat-form-field id = "edgeBelow">
+  <input matInput [(ngModel)]="executiveSummary" placeholder="Enter Executive Summary" value="">
+</mat-form-field>
+
+
+<mat-form-field id="edge">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Choose Assets to include, by default it will select all">
+</mat-form-field>
+
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">  
+       <!-- Build Column Names -->
+    <ng-container *ngFor="let column of displayedColumns">
+        <ng-container matColumnDef="{{column}}" *ngIf="column == 'Choose'">
+            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+            <td mat-cell *matCellDef="let asset"> <button mat-raised-button (click)="assetChosen(asset)" >Choose Asset</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="{{column}}" *ngIf="column == 'Delete'">
+            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+            <td mat-cell *matCellDef="let asset"> <button mat-raised-button (click)="removeAsset(asset)" >Remove From Report</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="{{column}}" *ngIf="column != 'Choose' && column !='Delete'">
+                <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                <td mat-cell *matCellDef="let asset"> {{asset[column]}} </td>
+        </ng-container>
+    </ng-container>
+
+  <!--<ng-container matColumnDef="Pick Asset">
+    <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+    <mat-cell><button mat-raised-button (click)="openDialog(i)" >More</button></mat-cell>
+  </ng-container>-->
+
+    <!-- Put all the details into the expanded rows -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let asset" [attr.colspan]="asCols.length">
+      <div class="asset-detail"
+           [@detailExpand]="asset == expandAsset ? 'expanded' : 'collapsed'">
+        <div class="criticality">
+          <div> Criticality: </div>
+          <div class="critical-level"> {{asset.Crit}} </div>
+          <div class="worth"> <b>${{asset.Worth}}</b> </div>
+        </div>
+        <div class="asset-expanded-info">
+          <div>
+            <!-- Will fix actual layout next sprint, fucnctionality first -->
+            <div><b><p>Asset Detailed Information:</p></b></div>
+            <div>
+              <p>ID: {{asset.ID}}</p>
+              <p>Name: {{asset.Name}}</p>
+              <p>Host: {{asset.Host}}</p>
+              <p>Owner: {{asset.Owner}}</p>
+              <p>Department: {{asset.Dept}}</p>
+            </div>
+            <div>
+              <p>Type: {{asset.Type}}</p>
+              <p>Company: {{asset.Company}}</p>
+              <p>Version: {{asset.Version}}</p>
+              <p>Features: {{asset.Features}}</p>
+              <p>Platform: {{asset.Platform}}</p>
+            </div>
+            <div>
+              <p>Description: {{asset.Desc}}</p>
+              <p>History: {{asset.Hist}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let asset; columns: displayedColumns;"
+      class="asset-row"
+      [class.asset-expanded-row]="expandAsset === asset"
+      (click)="expandAsset = expandAsset === asset ? null : asset">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="asset-detail-row"></tr>
+</table>
+
+<mat-form-field id = "edgeBelow">
+        <input matInput [(ngModel)]="additionalNotes" placeholder="Enter Additional Notes" value="">
+</mat-form-field>
+
+
+
+<a routerLink="/report-gen"></a>

@@ -25,7 +25,7 @@
     "@angular/router": "~8.2.14",
     "@material/select": "^3.2.0",
     "angular-in-memory-web-api": "^0.8.0",
-    "chart.js": "^2.9.1",
+    "chart.js": "^2.9.4",
     "core-js": "^2.6.10",
     "cors": "^2.8.5",
     "html2canvas": "^1.0.0-rc.5",
